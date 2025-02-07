@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico"> -->
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+
+  <link rel="stylesheet"  href="https://mapservices.njghzy.com.cn:8553/njapis/njmaps/mapbox/css/mapbox-gl.css" type="text/css"/>
+
+  <script type="text/javascript" src="https://mapservices.njghzy.com.cn:8553/njapis/njmaps/mapbox/js/mapbox-gl.js"></script>
+
+ 
+  <script type="text/javascript"
+    src="https://mapservices.njghzy.com.cn:8553/other/njapis/auth/GeoGlobe/GeoGlobeJS.min.js?njtoken=6dd013832af42fcd96c69988d0017920"></script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app">
+    <div style="padding-top: 52px;">
+      <div class="center">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var map = new GeoGlobe.Map({
+        container: 'map', //绑定容器
+        mapCRS: '4490', //定义坐标系
+        zoom: 10, //当前缩放级别
+        center: [118.778, 32.043], //定位中心点
+        maxZoom: 20, //最大缩放级别
+        minZoom: 8 //最小缩放级别
+    });
+
+    map.on('load', function () {
+        // 南京电子地图底图
+        var njdt_layer = new GeoGlobe.NJLayer("geo_tile_dt");
+        // 南京电子地图注记
+        var njzj_layer = new GeoGlobe.NJLayer("geo_tile_zj");
+        // 添加图层
+        map.addLayer(njdt_layer);
+        map.addLayer(njzj_layer);
+    })
+  </script>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

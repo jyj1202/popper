@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "typescript": "~5.7.2",
+    "unocss": "^65.4.3",
     "vite": "^6.1.0"
   }
 }

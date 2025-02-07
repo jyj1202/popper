@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="overflow-y-auto">
+    <div class="h-[200vh]" id="app">
+      <button id="reference1" class="p-2 cursor-pointer">reference1</button>
+      <div id="popper1" class="p-2 cursor-pointer shadow">popper1</div>
+
+      <button id="reference2" class="p-2 cursor-pointer">reference2</button>
+      <div id="popper2" class="p-2 cursor-pointer shadow">popper2</div>
+
+      <button id="reference3" class="p-2 cursor-pointer">reference3</button>
+      <div id="popper3" class="p-2 cursor-pointer shadow">popper3</div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
